@@ -38,7 +38,7 @@ Creating the USB is simple. All you need to do is format it as MacOS Journaled w
 
 Next we'll want to mount the EFI partition on the USB with either mountEFI or Clover Configurator.
 
-![mountEFI](https://i.imgur.com/4l1oK8i.png)
+![mountEFI](https://i.imgur.com/E6VM2Jc.png)
 
 You'll notice that once we open the EFI partition, it's empty. This is where the fun begins.
 
