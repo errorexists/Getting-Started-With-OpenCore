@@ -142,10 +142,11 @@ waking from hibernation
 
 # Misc
 
-**Boot**: Settings for boot screen (leave as-is unless you know what you're doing).
+**Boot**: Settings for boot screen.
 * Timeout: This sets how long OpenCore will wait until it automatically boots from the default selection
 * ShowPicker: If you need to see the picker screen, you better choose YES
 * UsePicker: Uses OpenCore's default GUI, set to NO if you wish to use a different GUI
+* Target: Setting for logging type (by default logging output is hidden).
 
 **Debug**: Debug has special use cases, leave as-is unless you know what you're doing.
 * DisableWatchDog: (May need to be set to yes if macOS is stalling while logging to file is enabled).
