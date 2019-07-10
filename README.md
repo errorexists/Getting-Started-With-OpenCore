@@ -14,7 +14,7 @@ OpenCore is an alternative bootloader to CloverEFI or Chameleon. It is not only 
 * ~~FakeSMC sensors can't be injected, alternative is [HWSensors3](https://github.com/warexify/HWSensors3) or [VirtualSMC sensors](https://github.com/acidanthera/VirtualSMC).~~
 * VoodooPS2Controller needs to be injected first, Keyboard second and Mouse/Trackpad third.
 * NVMe issues if setup as a SATA device in BIOS.
-* Sometimes can't access other partitions on the drive, solution is to "bless" the drive with Startup Disk
+* Sometimes can't access other partitions on the drive, solution is to "bless" the drive with Startup Disk.
 
 # Setting up OpenCore
 
@@ -25,7 +25,7 @@ Requirements:
 * [AptioFixPkg](https://github.com/acidanthera/AptioFixPkg/releases)
 * [mountEFI](https://github.com/corpnewt/MountEFI) or some form of EFI mounting. Clover Configurator works just as well
 * Xcode (or other plist editor) to edit .plist files.
-* USB formatted as MacOS Journaled with GUID partition map. This is to test opencore without overwriting your working clover.
+* USB formatted as MacOS Journaled with GUID partition map. This is to test opencore without overwriting your working Clover.
 * Knowledge of how a hackintosh works and what files yours requires.
 * A working Hackintosh to test on.
 
@@ -39,7 +39,7 @@ Next we'll want to mount the EFI partition on the USB with either mountEFI or Cl
 
 ![mountEFI](https://i.imgur.com/E6VM2Jc.png)
 
-You'll notice that once we open the EFI partition, it's empty. This is where the fun begins.
+You'll notice that once we open the EFI partition, it's empty.
 
 ![Empty EFI partition](https://i.imgur.com/EDeZB3u.png)
 
@@ -51,7 +51,7 @@ To setup OpenCore’s folder structure, you’ll want to grab those files from O
 
 Now you can place your necessary .efi drivers from AppleSupportPkg and AptioFixPkg into the *drivers* folder and kexts/ACPI into their respective folders. Please note that UEFI drivers are not supported with OpenCore!
 
-Here's what mine looks like (ignore my odd choice of kexts):
+Here's what mine looks like:
 
 ![Populated EFI folder](https://i.imgur.com/TLdovCj.png)
 
@@ -83,7 +83,7 @@ We can delete *#WARNING -1* and  *#WARNING -2* You did heed the warning didn't y
 
 **Patch**: In opencore we should be keeping ACPI patches to a minimum as they are often harmful and unecessary. If your system absolutely needs something, you should add it in this section.
 
-**Quirk**: Certain ACPI fixes. Avoid unless needed.
+**Quirk**: Certain ACPI fixes. Avoid unless necessary.
 
 * FadtEnableReset: NO (Enable reboot and shutdown on legacy hardware, not recommended unless needed)
 * NormalizeHeaders: Cleanup ACPI header fields, irrelevant in 10.14
@@ -129,12 +129,12 @@ waking from hibernation
 
 * AppleCpuPmCfgLock: Only needed when CFG-Lock can't be disabled in BIOS. Avoid unless necessary.
 * AppleXcpmCfgLock: Only needed when CFG-Lock can't be disabled in BIOS. Avoid unless necessary.
-* AppleXcpmExtraMsrs: Disables multiple MSR access needed for unsupported CPUs
-* CustomSMBIOSGuid: Performs GUID patching for UpdateSMBIOSMode Custom mode. Usually relevant for Dell laptops
+* AppleXcpmExtraMsrs: Disables multiple MSR access needed for unsupported CPUs.
+* CustomSMBIOSGuid: Performs GUID patching for UpdateSMBIOSMode Custom mode. Usually relevant for Dell laptops.
 * DisbaleIOMapper: Preferred to dropping DMAR in ACPI section or disabling VT-D in bios.
 * ExternalDiskIcons: External Icons Patch, for when internal drives are treated as external drives
 * LapicKernelPanic: Disables kernel panic on AP core lapic interrupt. Often needed on HP laptops.
-* PanicNoKextDump: Allows for reading kernel panics logs when kernel panics occurs
+* PanicNoKextDump: Allows for reading kernel panics logs when kernel panics occurs.
 * ThirdPartyTrim: Enables TRIM, not needed for AHCI or NVMe SSDs. It is better to enable third party trim via terminal command trimforce.
 * XhciPortLimit: This is actually the 15 port limit patch, use only while you create a [USB map](https://usb-map.gitbook.io/project/) when possible. Its use is NOT recomended long term.
 
@@ -144,8 +144,8 @@ waking from hibernation
 
 **Boot**: Settings for boot screen.
 * Timeout: This sets how long OpenCore will wait until it automatically boots from the default selection
-* ShowPicker: If you need to see the picker screen, you better choose YES
-* UsePicker: Uses OpenCore's default GUI, set to NO if you wish to use a different GUI
+* ShowPicker: If you need to see the picker screen, you better choose YES.
+* UsePicker: Uses OpenCore's default GUI, set to NO if you wish to use a different GUI.
 * Target: Setting for logging type (by default logging output is hidden).
 
 **Debug**: Debug has special use cases, leave as-is unless you know what you're doing.
@@ -153,11 +153,11 @@ waking from hibernation
 
 **Security**:
 
-* RequireSignature: We won't be dealing vault.plist so we can ignore
-* RequireVault: We won't be dealing vault.plist so we can ignore as well
+* RequireSignature: We won't be dealing vault.plist so we can ignore.
+* RequireVault: We won't be dealing vault.plist so we can ignore as well.
 * ScanPolicy: Allows customization of disk and file system types which are scanned (and shown) by opencore at boot time.
 
-**Tools** Used for running OC debugging tools like clearing NVRAM, we'll be ignoring this
+**Tools** Used for running OC debugging tools like clearing NVRAM, we'll be ignoring this.
 
 ![Misc](https://i.imgur.com/6NPXq0A.png)
 
@@ -171,9 +171,9 @@ waking from hibernation
    * `30000000` - Allow unsigned kexts and writing to protected fs locations
    * `E7030000` - SIP completely disabled
 * nvda_drv:  <> (For enabling Nvidia WebDrivers, set to 31 if running a [Maxwell or Pascal GPU](https://github.com/khronokernel/Catalina-GPU-Buyers-Guide/blob/master/README.md#Unsupported-nVidia-GPUs). This is the same as setting nvda_drv=1 but instead we translate it from [text to hex](https://www.browserling.com/tools/hex-to-text))
-* prev-lang:kbd: <> (Needed for non-latin keyboards)
+* prev-lang:kbd: <> (Needed for non-latin keyboards) If you find Russian, you didnt read the manual...
 
-**Block**: Forcibly rewrites NVRAM variables, not needed for us as `sudo nvram` is prefered but useful for those edge cases
+**Block**: Forcibly rewrites NVRAM variables, not needed for us as `sudo nvram` is prefered but useful for those edge cases.
 
 **LegacyEnable** Allows for NVRAM to be stored on nvram.plist for systems without working NVRAM.
 
@@ -183,14 +183,14 @@ waking from hibernation
 
 # Platforminfo
 
-**Automatic**: YES (Generates PlatformInfo based on Generic section instead of DataHub, NVRAM, and SMBIOS sections)
+**Automatic**: YES (Generates PlatformInfo based on Generic section instead of DataHub, NVRAM, and SMBIOS sections).
 
 **Generic**:
 
-* SpoofVendor: YES (This prevents issues with having "Apple.inc" as manufacturer.
+* SpoofVendor: YES (This prevents issues with having "Apple.inc" as manufacturer).
 * SystemUUID: Can be generated with MacSerial or use previous from Clover's config.plist.
 * MLB: Can be generated with MacSerial or use previous from Clover's config.plist.
-* ROM: <> (6 character MAC address, can be entirely random)
+* ROM: <> (6 character MAC address, can be entirely random).
 * SystemProductName: Can be generated with MacSerial or use previous from Clover's config.plist.
 * SystemSerialNumber: Can be generated with MacSerial or use previous from Clover's config.plist.
 `ROM must either be Apple ROM (dumped from a real Mac), or your NIC MAC address, or any random MAC address (could be just 6 random bytes)` - Vit9696
