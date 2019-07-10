@@ -77,7 +77,7 @@ We can delete *#WARNING -1* and  *#WARNING -2* just to clean it up a bit.
 
 # ACPI
 
-**Add:** You'll want to go through and disable all of them or rename them to the files you have under EFI/OC/ACPI (set enabled to no or delete).
+**Add:** Here you add your SSDTs or custom DSDT. (SSDT-EC.aml for example)
 
 **Block**: Certain systems benefit from dropping some acpi tables, most modern desktops however require nothing in this section.
 
