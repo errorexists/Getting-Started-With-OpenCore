@@ -1,7 +1,7 @@
 # Getting Started With OpenCore
 A brief guide to using the OpenCore boot-loader for hackintoshes
 
-**This guide will not always be the most up to date, please keep that in mind when compiling the latest version of OpenCore**
+**This guide will not always be the most up to date, please keep that in mind when compiling the latest version of OpenCore. To be safe, use release versions of opencore rather than the latest commits. **
 
 # What is OpenCore?
 
@@ -20,15 +20,14 @@ OpenCore is an alternative to Clover. By design, OpenCore is versatile by being 
 
 Requirements:
 
-* [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg/releases) (Recommend to build from scratch instead of using the prebuilt package as OpenCore is constantly being updated. As of writing we're on Version 0.0.3 even though the current official release is 0.0.1)
+* [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg/releases) (Advanced users can build the latest from source code, less adavnced users should stick to the builds on the release page).
 * [AppleSupportPkg](https://github.com/acidanthera/AppleSupportPkg/releases)
 * [AptioFixPkg](https://github.com/acidanthera/AptioFixPkg/releases)
 * [mountEFI](https://github.com/corpnewt/MountEFI) or some form of EFI mounting. Clover Configurator works just as well
-* Xcode to edit .plist files ([OpenCore Configurator](https://www.insanelymac.com/forum/topic/338686-opencore-configurator/) is another tool, but vit9696 has stated multiple times he does not support these tools and they even break OpenCore's specifications. Use at own risk!)
-* USB formatted as MacOS Journaled with GUID partition map.
+* Xcode (or other plist editor) to edit .plist files.
+* USB formatted as MacOS Journaled with GUID partition map. This is to test opencore without overwriting your working clover.
 * Knowledge of how a hackintosh works and what files yours requires.
 * A working Hackintosh to test on.
-* You must remove Clover from your system entirely if you wish to use it as your main boot-loader. Keep a backup of your Clover based EFI.
 
 # Creating the USB
 
@@ -137,8 +136,8 @@ waking from hibernation
 * ExternalDiskIcons: External Icons Patch, for when internal drives are treated as external drives
 * LapicKernelPanic: Disables kernel panic on AP core lapic interrupt
 * PanicNoKextDump: Allows for reading kernel panics logs when kernel panics occurs
-* ThirdPartyTrim: Enables TRIM, not needed for AHCI or NVMe SSDs
-* XhciPortLimit: This is actually the 15 port limit patch, don't rely on it as it's not a guaranteed solution to USB. Please create a [USB map](https://usb-map.gitbook.io/project/) when possible. Its intended use is for those that do not have a USB map.
+* ThirdPartyTrim: Enables TRIM, not needed for AHCI or NVMe SSDs. It is better to enable third party trim via terminal command.
+* XhciPortLimit: This is actually the 15 port limit patch, use only while you create a [USB map](https://usb-map.gitbook.io/project/) when possible. Its use is NOT recomended long term.
 
 ![Kernel](https://i.imgur.com/DcafUhE.png)
 
