@@ -34,7 +34,7 @@ Requirements:
 
 Creating the USB is simple. All you need to do is format it as MacOS Journaled with GUID partition map. There is no real size requirement for the USB as OpenCore's entire EFI is less than 5MB.
 
-![Formatting the USB](https://i.imgur.com/5uTJbgI.png)
+![Formatting the USB](https://i.imgur.com/9HNB1Jj.png)
 
 Next we'll want to mount the EFI partition on the USB with either mountEFI or Clover Configurator.
 
