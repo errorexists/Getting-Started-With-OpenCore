@@ -240,11 +240,11 @@ waking from hibernation
 
 ![Finished EFI](https://i.imgur.com/TLdovCj.png)
 
-# And now you're ready to boot!
+# And now you are ready to boot!
 
 ![AboutThisMac](https://i.imgur.com/MFq1qGr.png)
 
-# Making Opencore your Main Boot-Loader
+# Making Opencore your Main Bootloader
 
 When you are happy opencore boots your system correctly, simply mount your Clover efi partition, (back it up somewhere safe) and overwrite it with your OpenCore one. Certain system BIOS may require you to manually remove Clover as an EFI boot option (and extra special system might need a factory reset to permanently remove it).
 
