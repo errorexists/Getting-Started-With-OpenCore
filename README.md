@@ -57,7 +57,7 @@ Here's what mine looks like (ignore my odd choice of kexts):
 
 # Setting up your config.plist
 
-Keep in mind with config.plist in OpenCore, they are different from Clover’s config.plists. They cannot be mixed and matched. It is not recomended to duplicate every patch and option from your clover config. 
+Keep in mind with config.plist in OpenCore, they are different from Clover’s config.plist, they cannot be mixed and matched. It is not recomended to duplicate every patch and option from your clover config. 
 
 First let’s duplicate the `sample.plist`, rename the duplicate to `config.plist` and open in Xcode.
 
@@ -79,7 +79,7 @@ We can delete *#WARNING -1* and  *#WARNING -2* just to clean it up a bit.
 
 **Add:** You'll want to go through and disable all of them or rename them to the files you have under EFI/OC/ACPI (set enabled to no or delete).
 
-**Block**: We won't be doing anything here.
+**Block**: Certain systems benefit from dropping some acpi tables, most modern desktops however require nothing in this section.
 
 **Patch**: In opencore we should be keeping ACPI patches to a minimum as they are often harmful and unecessary. If your system absolutely needs something, you should add it in this section.
 
