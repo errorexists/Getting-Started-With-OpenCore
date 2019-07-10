@@ -1,11 +1,11 @@
 # Getting Started With OpenCore
-A brief guide to using the OpenCore boot-loader for hackintosh.
+A brief guide to using the OpenCore bootloader for hackintosh.
 
-**This guide will not always be the most up to date, please keep that in mind when compiling the latest version of OpenCore. To be safe, use release versions of opencore rather than the latest commits. ** This guide is intended to complement the excellent opencore "configuration.pdf" rather than be used instead of it. 
+**This guide may not always be the most up to date, (currently opencore is in active development, and therefore a moving target) please keep that in mind when compiling the latest version of OpenCore. To be safe, use release versions of opencore rather than the latest commits. ** This guide is intended to complement the excellent opencore "configuration.pdf" rather than be used instead of it. 
 
 # What is OpenCore?
 
-OpenCore is an alternative to Clover. By design, OpenCore is versatile by being more modular and open as it aims to resolve the constraints and issues that Clover brings. It is not only for Hackintoshes as it can be used for other purposes that require an emulated EFI. Please remember we’re still in very early infancy so there will be issues. This specific guide will be omitting Vault.plist and Vault.sig as there's still quite a bit of development happening there. OpenCore should be considered in Alpha stage at this time. If you have a working, stable system you should not migrate unless you prefer "bleeding edge" development, want to contribute, and don't mind recovering your system should it fail to boot.
+OpenCore is an alternative bootloader to CloverEFI. It is not only for Hackintosh as it can be used on real macs for purposes that require an emulated EFI. It has a clean codebase and aims to stay closer to how a real mac bootloader functions. While already functioning well, OpenCore should be considered in Alpha stage at this time and should be used by experienced hackintosh users and developers or users who are happy to recover a system which fails to boot, or becomes broken in some way.
 
 # Current issues with OpenCore
 
