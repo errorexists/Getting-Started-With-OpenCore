@@ -93,7 +93,7 @@ We can delete *#WARNING -1* and  *#WARNING -2* just to clean it up a bit.
 waking from hibernation
 * ResetLogoStatus: Workaround for systems running BGRT tables
 
-![ACPI](https://i.imgur.com/sjlX3aT.png)
+![ACPI](https://imgur.com/WaGa6PT)
 
 &#x200B;
 
