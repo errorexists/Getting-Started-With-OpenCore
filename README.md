@@ -256,3 +256,4 @@ Remove Clover's Preference Pane (if installed) You can find that at: `/Library/P
 * [InsanelyMac's OpenCore forums](https://www.insanelymac.com/forum/topic/338516-opencore-discussion/) for finding issues with hardware and their work arounds
 * [icedterminal](https://github.com/icedterminal) for heavy grammar correction and Clover Removal
 * [khronokernel](https://github.com/khronokernel) for the lovely email. :D
+* [MacFriedIntel](https://github.com/MacFriedIntel) for not giving a shit :D
