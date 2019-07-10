@@ -187,12 +187,12 @@ waking from hibernation
 
 **Generic**:
 
-* SpoofVendor: YES
-* SystemUUID: Can be generated with MacSerial or use pervious from Clover's config.plist.
-* MLB: Can be generated with MacSerial or use pervious from Clover's config.plist.
+* SpoofVendor: YES (This prevents issues with having "Apple.inc" as manufacturer.
+* SystemUUID: Can be generated with MacSerial or use previous from Clover's config.plist.
+* MLB: Can be generated with MacSerial or use previous from Clover's config.plist.
 * ROM: <> (6 character MAC address, can be entirely random)
-* SystemProductName: Can be generated with MacSerial or use pervious from Clover's config.plist.
-* SystemSerialNumber: Can be generated with MacSerial or use pervious from Clover's config.plist.
+* SystemProductName: Can be generated with MacSerial or use previous from Clover's config.plist.
+* SystemSerialNumber: Can be generated with MacSerial or use previous from Clover's config.plist.
 `ROM must either be Apple ROM (dumped from a real Mac), or your NIC MAC address, or any random MAC address (could be just 6 random bytes)` - Vit9696
 
 **DataHub**
@@ -246,13 +246,9 @@ waking from hibernation
 
 # Making Opencore your Main Boot-Loader
 
-So now you're ready to completely switch What you'll want to do is completely scrub your system of Clover. The main things to keep in mind is:
-* Clover is on your Boot Drive (duh)
-* Clover may be hiding in other spots (Clover Preference Pane and other tools that rely on Clover)
+When you are happy opencore boots your system correctly, simply mount your Clover efi partition, (back it up somewhere safe) and overwrite it with your OpenCore one. Certain system BIOS may require you to manually remove Clover as an EFI boot option (and extra special system might need a factory reset to permanently remove it).
 
-Cleaning up is actually quite simple, for your EFI you'll want to run [mountEFI](https://github.com/corpnewt/MountEFI), move Clover to somewhere safe(preferably a rescue USB) and copy OpenCore's EFI to the main drive's EFI partition. Certain system BIOS may require you to manually remove Clover as an EFI boot option (and extra special system might need a factory reset to permanently remove it)
-
-Regarding apps that rely on Clover, you'll need to look through yourself but main culprit is Clover's Preference Pane which is used for updating Clover (I think you can see why that's an issue). You can find that at: `/Library/PreferencePanes/Clover.prefPane`.
+Remove Clover's Preference Pane (if installed) You can find that at: `/Library/PreferencePanes/Clover.prefPane`.
 
 # Credit
 * [Apple](https://www.apple.com) for MacOS
