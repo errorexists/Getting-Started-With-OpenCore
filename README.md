@@ -73,7 +73,7 @@ At this point you've noticed there are a number of sections:
 * Platforminfo: This is where we setup your SMBIOS.
 * UEFI: UEFI drivers and related options. 
 
-We can delete *#WARNING -1* and  *#WARNING -2* just to clean it up a bit.
+We can delete *#WARNING -1* and  *#WARNING -2* You did heed the warning didn't you?
 
 # ACPI
 
@@ -86,7 +86,6 @@ We can delete *#WARNING -1* and  *#WARNING -2* just to clean it up a bit.
 **Quirk**: Certain ACPI fixes. Avoid unless needed.
 
 * FadtEnableReset: NO (Enable reboot and shutdown on legacy hardware, not recommended unless needed)
-* ~~IgnoreForWindows: NO (Disable ACPI modifications when booting Windows, only for those who made broken ACPI tables)~~ Removed from OpenCore
 * NormalizeHeaders: Cleanup ACPI header fields, irrelevant in 10.14
 * RebaseRegions: Attempt to heuristically relocate ACPI memory regions
 * ResetHwSig: Needed for hardware that fail fail to maintain hardware signature across the reboots and cause issues with
@@ -128,15 +127,15 @@ waking from hibernation
 
 **Quirks**:
 
-* AppleCpuPmCfgLock: Only needed when CFG-Lock can't be disabled in BIOS
-* AppleXcpmCfgLock: Only needed when CFG-Lock can't be disabled in BIOS
+* AppleCpuPmCfgLock: Only needed when CFG-Lock can't be disabled in BIOS. Avoid unless necessary.
+* AppleXcpmCfgLock: Only needed when CFG-Lock can't be disabled in BIOS. Avoid unless necessary.
 * AppleXcpmExtraMsrs: Disables multiple MSR access needed for unsupported CPUs
 * CustomSMBIOSGuid: Performs GUID patching for UpdateSMBIOSMode Custom mode. Usually relevant for Dell laptops
-* DisbaleIOMapper: Needed to get around VT-D if unable to disable in BIOS, can interfere with Firmware
+* DisbaleIOMapper: Preferred to dropping DMAR in ACPI section or disabling VT-D in bios.
 * ExternalDiskIcons: External Icons Patch, for when internal drives are treated as external drives
-* LapicKernelPanic: Disables kernel panic on AP core lapic interrupt
+* LapicKernelPanic: Disables kernel panic on AP core lapic interrupt. Often needed on HP laptops.
 * PanicNoKextDump: Allows for reading kernel panics logs when kernel panics occurs
-* ThirdPartyTrim: Enables TRIM, not needed for AHCI or NVMe SSDs. It is better to enable third party trim via terminal command.
+* ThirdPartyTrim: Enables TRIM, not needed for AHCI or NVMe SSDs. It is better to enable third party trim via terminal command trimforce.
 * XhciPortLimit: This is actually the 15 port limit patch, use only while you create a [USB map](https://usb-map.gitbook.io/project/) when possible. Its use is NOT recomended long term.
 
 ![Kernel](https://i.imgur.com/DcafUhE.png)
