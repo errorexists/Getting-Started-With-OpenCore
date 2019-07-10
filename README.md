@@ -5,7 +5,7 @@ A brief guide to using the OpenCore bootloader for hackintosh.
 
 # What is OpenCore?
 
-OpenCore is an alternative bootloader to CloverEFI. It is not only for Hackintosh as it can be used on real macs for purposes that require an emulated EFI. It has a clean codebase and aims to stay closer to how a real mac bootloader functions. While already functioning well, OpenCore should be considered in Alpha stage at this time and should be used by experienced hackintosh users and developers or users who are happy to recover a system which fails to boot, or becomes broken in some way.
+OpenCore is an alternative bootloader to CloverEFI or Chameleon. It is not only for Hackintosh as it can be used on real macs for purposes that require an emulated EFI. It has a clean codebase and aims to stay closer to how a real mac bootloader functions. While already functioning well, OpenCore should be considered in Alpha stage at this time and should be used by experienced hackintosh users and developers or users who are happy to recover a system which fails to boot, or becomes broken in some way.
 
 # Current issues with OpenCore
 
