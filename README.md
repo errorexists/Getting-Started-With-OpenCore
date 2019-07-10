@@ -144,7 +144,7 @@ waking from hibernation
 
 **Boot**: Settings for boot screen (leave as-is unless you know what you're doing).
 * Timeout: This sets how long OpenCore will wait until it automatically boots from the default selection
-* ShowPicker: 
+* ShowPicker: If you need to see the picker screen, you better choose YES
 * UsePicker: Uses OpenCore's default GUI, set to NO if you wish to use a different GUI
 
 **Debug**: Debug has special use cases, leave as-is unless you know what you're doing.
@@ -174,7 +174,7 @@ waking from hibernation
 
 **Block**: Forcibly rewrites NVRAM variables, not needed for us as `sudo nvram` is prefered but useful for those edge cases
 
-**LegacyEnable** Allows for NVRAM to be stored on nvram.plist 
+**LegacyEnable** Allows for NVRAM to be stored on nvram.plist for systems without working NVRAM.
 
 **LegacySchema** Used for assigning nvram variable
 
