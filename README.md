@@ -88,7 +88,7 @@ We can delete *#WARNING -1* and  *#WARNING -2* You did heed the warning didn't y
 * FadtEnableReset: NO (Enable reboot and shutdown on legacy hardware, not recommended unless needed)
 * NormalizeHeaders: Cleanup ACPI header fields, irrelevant in 10.14
 * RebaseRegions: Attempt to heuristically relocate ACPI memory regions
-* ResetHwSig: Needed for hardware that fail fail to maintain hardware signature across the reboots and cause issues with
+* ResetHwSig: Needed for hardware that fail to maintain hardware signature across the reboots and cause issues with
 waking from hibernation
 * ResetLogoStatus: Workaround for systems running BGRT tables
 
@@ -148,9 +148,9 @@ waking from hibernation
 * UsePicker: Uses OpenCore's default GUI, set to NO if you wish to use a different GUI
 
 **Debug**: Debug has special use cases, leave as-is unless you know what you're doing.
-* DisableWatchDog: (May need to be set for yes if macOS is stalling on something while logging is enabled.
+* DisableWatchDog: (May need to be set to yes if macOS is stalling while logging to file is enabled).
 
-**Security**: Security is pretty self-explanatory.
+**Security**:
 
 * RequireSignature: We won't be dealing vault.plist so we can ignore
 * RequireVault: We won't be dealing vault.plist so we can ignore as well
