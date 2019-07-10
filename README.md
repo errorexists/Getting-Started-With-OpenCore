@@ -1,7 +1,7 @@
 # Getting Started With OpenCore
-A brief guide to using the OpenCore boot-loader for hackintoshes
+A brief guide to using the OpenCore boot-loader for hackintosh.
 
-**This guide will not always be the most up to date, please keep that in mind when compiling the latest version of OpenCore. To be safe, use release versions of opencore rather than the latest commits. **
+**This guide will not always be the most up to date, please keep that in mind when compiling the latest version of OpenCore. To be safe, use release versions of opencore rather than the latest commits. ** This guide is intended to complement the excellent opencore "configuration.pdf" rather than be used instead of it. 
 
 # What is OpenCore?
 
@@ -57,13 +57,13 @@ Here's what mine looks like (ignore my odd choice of kexts):
 
 # Setting up your config.plist
 
-Keep in mind with Config.plist in OpenCore, they are different from Clover’s config.plists. They cannot be mixed and matched. And you'll also need to read the documentation in regards to what everything does if you don't know.
+Keep in mind with config.plist in OpenCore, they are different from Clover’s config.plists. They cannot be mixed and matched. It is not recomended to duplicate every patch and option from your clover config. 
 
 First let’s duplicate the `sample.plist`, rename the duplicate to `config.plist` and open in Xcode.
 
 ![Base Config.plist](https://i.imgur.com/MklVb2Z.png)
 
-At this point you've noticed there are a bunch of groups:
+At this point you've noticed there are a number of sections:
 
 * ACPI: This is for loading, blocking and patching the ACPI.
 * DeviceProperties: This is where you'd set PCI device patches like the Intel Framebuffer patch.
@@ -71,7 +71,7 @@ At this point you've noticed there are a bunch of groups:
 * Misc: Settings for OpenCore's boot loader itself.
 * NVRAM: This is where we set NVRAM properties like boot flags and SIP.
 * Platforminfo: This is where we setup your SMBIOS.
-* UEFI: Where we tell OpenCore which drivers to load and in which order.
+* UEFI: UEFI drivers and related options. 
 
 We can delete *#WARNING -1* and  *#WARNING -2* just to clean it up a bit.
 
@@ -81,9 +81,9 @@ We can delete *#WARNING -1* and  *#WARNING -2* just to clean it up a bit.
 
 **Block**: We won't be doing anything here.
 
-**Patch**: Here you'll be adding some USB and SATA patches, follow the [Vanilla guide](https://hackintosh.gitbook.io/-r-hackintosh-vanilla-desktop-guide/) for what patches your system may need.
+**Patch**: In opencore we should be keeping ACPI patches to a minimum as they are often harmful and unecessary. If your system absolutely needs something, you should add it in this section.
 
-**Quirk**: Settings for ACPI.
+**Quirk**: Certain ACPI fixes. Avoid unless needed.
 
 * FadtEnableReset: NO (Enable reboot and shutdown on legacy hardware, not recommended unless needed)
 * ~~IgnoreForWindows: NO (Disable ACPI modifications when booting Windows, only for those who made broken ACPI tables)~~ Removed from OpenCore
@@ -149,13 +149,13 @@ waking from hibernation
 * UsePicker: Uses OpenCore's default GUI, set to NO if you wish to use a different GUI
 
 **Debug**: Debug has special use cases, leave as-is unless you know what you're doing.
-* DisableWatchDog: (May need to be set for yes if macOS is stalling on something while booting
+* DisableWatchDog: (May need to be set for yes if macOS is stalling on something while logging is enabled.
 
 **Security**: Security is pretty self-explanatory.
 
 * RequireSignature: We won't be dealing vault.plist so we can ignore
 * RequireVault: We won't be dealing vault.plist so we can ignore as well
-* ScanPolicy: This allow you to see all drives available, please refer to OpenCore's DOC for furthur info on setting up ScanPolicy
+* ScanPolicy: Allows customization of disk and file system types which are scanned (and shown) by opencore at boot time.
 
 **Tools** Used for running OC debugging tools like clearing NVRAM, we'll be ignoring this
 
