@@ -57,13 +57,13 @@ Here's what mine looks like:
 
 # Setting up your config.plist
 
-Keep in mind with config.plist in OpenCore, they are different from Clover’s config.plist, they cannot be mixed and matched. It is not recomended to duplicate every patch and option from your clover config. 
+Keep in mind with config.plist in OpenCore, they are different from Clover’s config.plist, they cannot be mixed and matched. It is not recommended to duplicate every patch and option from your clover config. 
 
 First let’s duplicate the `sample.plist`, rename the duplicate to `config.plist` and open in Xcode.
 
 ![Base Config.plist](https://i.imgur.com/MklVb2Z.png)
 
-At this point you've noticed there are a number of sections:
+The config contains a number of sections:
 
 * ACPI: This is for loading, blocking and patching the ACPI.
 * DeviceProperties: This is where you'd set PCI device patches like the Intel Framebuffer patch.
@@ -102,7 +102,7 @@ waking from hibernation
 
 `PciRoot(0x0)/Pci(0x2,0x0)` -> `AAPL,ig-platform-id`
 
-* Applies Framebuffer patch, insert required value from Framebuffer guide [here](https://www.insanelymac.com/forum/topic/334899-intel-framebuffer-patching-using-whatevergreen/?tab=comments#comment-2626271). Don't forget to add Stolemen and patch-enable.
+* Applies Framebuffer patch, insert required value from Framebuffer guide [here](https://www.insanelymac.com/forum/topic/334899-intel-framebuffer-patching-using-whatevergreen/?tab=comments#comment-2626271). Don't forget to add Stolemem and patch-enable.
 
 `PciRoot(0x0)/Pci(0x1b,0x0)` -> `Layout-id`
 
@@ -114,7 +114,8 @@ waking from hibernation
 
 # Kernel
 
-**Add**: Here's where you specify which kexts to load, order matters here so make sure Lilu.kext is always first! Other higher priority kexts come after Lilu such as, VirtualSMC, AppleALC, WhateverGreen, etc.
+**Add**: Here's where you specify which kexts to load, and the order in which they are loaded, Lilu.kext should be first!
+Plugins for other kexts should always come after the main kext. Lilu plugins- after Lilu, VirtualSMC plugins- after VirtualSMC etc.
 
 **Emulate**: Needed for spoofing unsupported CPUs like Pentiums and Celerons
 
@@ -212,7 +213,7 @@ waking from hibernation
 
 # UEFI
 
-**ConnectDrivers**: YES (Forces .efi drivers, change to NO for faster boot times but cerain file system drivers may not load)
+**ConnectDrivers**: YES (Forces .efi drivers, change to NO for faster boot times but certain file system drivers may not load)
 
 **Drivers**: Add your .efi drivers here.
 
@@ -230,7 +231,7 @@ waking from hibernation
 * IgnoreTextInGraphics: (Fix for UI corruption when both text and graphics outputs happen)
 * ProvideConsoleGop: (Enables GOP, AptioMemoryFix currently offers this but will soon be removed)
 * ReleaseUsbOwnership: (Releases USB controller from firmware driver)
-* RequestBootVarRouting: (Redirects AptioMemeoryFix from EFI_GLOBAL_VARIABLE_G to OC_VENDOR_VARIABLE_GUID. Needed for when firmware tries to delete boot entries)
+* RequestBootVarRouting: (Redirects AptioMemoryFix from EFI_GLOBAL_VARIABLE_G to OC_VENDOR_VARIABLE_GUID. Needed for when firmware tries to delete boot entries)
 * SanitiseClearScreen: (Fixes High resolutions displays that display OpenCore in 1024x768)
 
 ![UEFI](https://i.imgur.com/acZ1PUA.png)
