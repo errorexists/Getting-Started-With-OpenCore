@@ -238,11 +238,8 @@ Plugins for other kexts should always come after the main kext. Lilu plugins- af
 
 ![UEFI](https://i.imgur.com/acZ1PUA.png)
 
-# What your EFI should now look like:
 
-![Finished EFI](https://i.imgur.com/TLdovCj.png)
-
-# And now you are ready to boot!
+# And now you are ready to test boot!
 
 ![AboutThisMac](https://i.imgur.com/MFq1qGr.png)
 
