@@ -19,7 +19,7 @@ OpenCore is an alternative bootloader to CloverEFI or Chameleon. It is not only 
 
 Requirements:
 
-* [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg/releases) (Advanced users can build the latest from source code, less adavnced users should stick to the builds on the release page).
+* [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg/releases) (Advanced users can build the latest from source code, less advanced users should stick to the builds on the release page).
 * [AppleSupportPkg](https://github.com/acidanthera/AppleSupportPkg/releases)
 * [AptioFixPkg](https://github.com/acidanthera/AptioFixPkg/releases)
 * [mountEFI](https://github.com/corpnewt/MountEFI) or some form of EFI mounting. Clover Configurator works just as well
