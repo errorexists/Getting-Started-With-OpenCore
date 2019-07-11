@@ -168,7 +168,7 @@ Plugins for other kexts should always come after the main kext. Lilu plugins- af
 
 **Add**: 7C436110-AB2A-4BBB-A880-FE41995C9F82 (System Integrity Protection bitmask)
 
-* boot-args: -v dart=0 debug=0x100 keepsyms=1 , etc (Boot flags)
+* boot-args: -v debug=0x100 keepsyms=1 , etc (Boot flags)
 * csr-active-config: <00000000> (Settings for SIP, recommeded to manully change this within Recovery partition with csrutil. 
    * `00000000` - SIP completely enabled
    * `30000000` - Allow unsigned kexts and writing to protected fs locations
@@ -215,14 +215,14 @@ Plugins for other kexts should always come after the main kext. Lilu plugins- af
 
 # UEFI
 
-**ConnectDrivers**: YES (Forces .efi drivers, change to NO for faster boot times but certain file system drivers may not load)
+**ConnectDrivers**: YES
 
 **Drivers**: Add your .efi drivers here.
 
 **Protocols**:
 
 * AppleBootPolicy: (Ensures APFS compatibility on VMs or legacy Macs)
-* ConsoleControl: (Replaces Console Control protocol with a builtin version, needed for when firmware doesn’t support text output mode)
+* ConsoleControl: Needed on most APTIO firmwares otherwise you may see text output during booting instead of Apple logo
 * DataHub: (Reinstalls Data Hub)
 * DeviceProperties: (Ensures full compatibility on VMs or legacy Macs)
 
@@ -234,7 +234,7 @@ Plugins for other kexts should always come after the main kext. Lilu plugins- af
 * ProvideConsoleGop: (Enables GOP, AptioMemoryFix currently offers this but will soon be removed)
 * ReleaseUsbOwnership: (Releases USB controller from firmware driver)
 * RequestBootVarRouting: (Recommended to be enabled on all systems for correct update installation, Startup Disk control panel functioning, etc.
-* SanitiseClearScreen: (Fixes High resolutions displays that display OpenCore in 1024x768)
+* SanitiseClearScreen: (Fixes High resolutions displays that display OpenCore in 1024x768) Also necessary on select AMD GPUs on Z370.
 
 ![UEFI](https://i.imgur.com/acZ1PUA.png)
 
