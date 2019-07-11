@@ -138,7 +138,7 @@ Plugins for other kexts should always come after the main kext. Lilu plugins- af
 * ExternalDiskIcons: External Icons Patch, for when internal drives are treated as external drives
 * LapicKernelPanic: Disables kernel panic on AP core lapic interrupt. Often needed on HP laptops.
 * PanicNoKextDump: Allows for reading kernel panics logs when kernel panics occurs.
-* ThirdPartyTrim: Enables TRIM, not needed for AHCI or NVMe SSDs. It is better to enable third party trim via terminal command trimforce.
+* ThirdPartyTrim: It is better to enable third party trim (if necessary) via terminal command trimforce.
 * XhciPortLimit: This is actually the 15 port limit patch, use only while you create a [USB map](https://usb-map.gitbook.io/project/) when possible. Its use is NOT recomended long term.
 
 ![Kernel](https://i.imgur.com/DcafUhE.png)
