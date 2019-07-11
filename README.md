@@ -22,7 +22,6 @@ Requirements:
 * [OpenCorePkg](https://github.com/acidanthera/OpenCorePkg/releases) (Advanced users can build the latest from source code, less advanced users should stick to the builds on the release page).
 * [AppleSupportPkg](https://github.com/acidanthera/AppleSupportPkg/releases)
 * [AptioFixPkg](https://github.com/acidanthera/AptioFixPkg/releases)
-* [mountEFI](https://github.com/corpnewt/MountEFI) or some form of EFI mounting. Clover Configurator works just as well
 * Xcode (or other plist editor) to edit .plist files.
 * USB formatted as MacOS Journaled with GUID partition map. This is to test opencore without overwriting your working Clover.
 * Knowledge of how a hackintosh works and what files yours requires.
@@ -35,9 +34,9 @@ Creating the USB is simple, format a stick as MacOS Journaled with GUID partitio
 
 ![Formatting the USB](https://i.imgur.com/9HNB1Jj.png)
 
-Next we'll want to mount the EFI partition on the USB with either mountEFI or Clover Configurator.
+Next we'll want to mount the EFI partition on the USB with either diskutil terminal command or Clover Configurator.
 
-![mountEFI](https://i.imgur.com/E6VM2Jc.png)
+![mountEFI](https://imgur.com/Suv5IEA.png)
 
 You'll notice that once we open the EFI partition, it's empty.
 
