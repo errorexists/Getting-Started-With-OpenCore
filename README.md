@@ -233,7 +233,7 @@ Plugins for other kexts should always come after the main kext. Lilu plugins- af
 * IgnoreTextInGraphics: (Fix for UI corruption when both text and graphics outputs happen)
 * ProvideConsoleGop: (Enables GOP, AptioMemoryFix currently offers this but will soon be removed)
 * ReleaseUsbOwnership: (Releases USB controller from firmware driver)
-* RequestBootVarRouting: (Redirects AptioMemoryFix from EFI_GLOBAL_VARIABLE_G to OC_VENDOR_VARIABLE_GUID. Needed for when firmware tries to delete boot entries)
+* RequestBootVarRouting: (Recommended to be enabled on all systems for correct update installation, Startup Disk control panel functioning, etc.
 * SanitiseClearScreen: (Fixes High resolutions displays that display OpenCore in 1024x768)
 
 ![UEFI](https://i.imgur.com/acZ1PUA.png)
