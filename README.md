@@ -36,7 +36,7 @@ Creating the USB is simple, format a stick as MacOS Journaled with GUID partitio
 
 Next we'll want to mount the EFI partition on the USB with either diskutil terminal command or Clover Configurator.
 
-![mountEFI](https://imgur.com/Suv5IEA.png)
+![mountEFI](https://imgur.com/z2X19md.png)
 
 You'll notice that once we open the EFI partition, it's empty.
 
